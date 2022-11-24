@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>upload photo</title>
+    <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
+    <link rel="stylesheet" type="text/css" href="/static/jquery.filer.css">
+    <link rel="stylesheet" type="text/css" href="/static/jquery.filer-dragdropbox-theme.css">
+    <link rel="stylesheet" type="text/css" href="/static/tomorrow.css">
+    <link rel="stylesheet" type="text/css" href="/static/custom.css">
+
+</head>
+<body>
+<section id="section4" class="section-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- <h2>upload photo</h2> -->
+                <hr>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane pt20 pb20 fade in active" id="demo-default">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <br><br>
+                                    <form action="/MHealth/index/" method="post" enctype="multipart/form-data" class="text-center">
+                                        {% csrf_token %}
+{#                                       <input type="file" name="" id="demo-fileInput-4" accept="image/*">#}
+                                        <input type="file" name="files[]" id="demo-fileInput-4" multiple>
+{#                                                  <input type="submit" class="btn-custom green" value="Submit">#}
+                                        <input type="submit" class="btn-custom green" value="recognition">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <br>
+</section>
+
+    {% if messages %}
+        <script>
+            {% for msg in messages %}
+                alert('{{ msg.message }}');
+            {% endfor %}
+        </script>
+    {% endif %}
+
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
+<script src="/static/jquery.filer.min.js" type="text/javascript"></script>
+<script src="/static/prettify.js" type="text/javascript"></script>
+<script src="/static/custom.js" type="text/javascript"></script>
+</body>
+</html>
